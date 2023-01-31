@@ -1,0 +1,174 @@
+{
+    "name": "InputActions",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "f4fc917e-3b7b-4424-9420-a01954495cc6",
+            "actions": [
+                {
+                    "name": "andar",
+                    "type": "Value",
+                    "id": "3ca7e18a-dd7d-4aa2-b1cd-a9774cc5ef14",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "strafe",
+                    "type": "Value",
+                    "id": "9c595917-9a79-4611-9cdf-9b2854b0a1c5",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "rotar",
+                    "type": "Button",
+                    "id": "f6460b10-24d9-492e-8d94-39558542f417",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "strafeL",
+                    "type": "Value",
+                    "id": "02a2c719-ca8d-4a8f-894f-80db5cf582dc",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "strafeR",
+                    "type": "Value",
+                    "id": "675b2b31-2cf1-4fd0-b5c1-dbdbe8e329e7",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "correr",
+                    "type": "Button",
+                    "id": "4e7d39b2-08e0-418e-8811-914fadd1be3d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "15fa91c7-c6c5-49e9-a21d-e44b50ab3efa",
+                    "path": "<Gamepad>/leftStick/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "andar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ea6b7dc2-184b-4269-aa3a-ffbe47d1344e",
+                    "path": "<Gamepad>/leftStick/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "strafe",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ddd4246e-37e8-4be7-b6ea-b9f60dce80db",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "rotar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "759a30c2-a65c-4814-96ad-4951e6bd6525",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "strafeL",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f12772fa-90c1-43db-b745-a6faf09942ac",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "strafeR",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f79f0804-2c37-4f6d-8ca1-fd4f8c569771",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "correr",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Camera",
+            "id": "92a64fd8-964c-45e7-8a53-c00643ab4b7d",
+            "actions": [
+                {
+                    "name": "apuntando",
+                    "type": "Button",
+                    "id": "4a2cf1a8-b618-408f-9606-9ae15e5bc062",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "pivotar",
+                    "type": "Value",
+                    "id": "7069c1cb-1b7c-4fbd-ba61-f45809b343af",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "bdfdaac9-1216-4e7e-afbc-7d1dbb23aeae",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "apuntando",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "768a25f4-0ee0-44e1-a7a2-281b8cee9ffc",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "pivotar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
