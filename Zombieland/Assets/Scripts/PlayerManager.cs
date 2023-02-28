@@ -4,49 +4,54 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    InputActions inputactions;
 
-    [SerializeField] float andar;
+    InputActions inputActions;
+
+    [SerializeField] float move;
     [SerializeField] float rotate;
     [SerializeField] float strafe;
     [SerializeField] float strafeL;
     [SerializeField] float strafeR;
+
     [SerializeField] CharacterController cc;
+    Animator animator;
 
-    bool running = false;
+    bool corriendo = false;
 
+    float speedMove = 1f;
+    float speedStrafe = 1f;
 
-    Animator aController;
-
-    //Vector de desplazamiento
     Vector3 moveVector;
-    float speedMove;
-    float speedStrafe;
+
     private void Awake()
     {
-        inputactions = new InputActions();
+        inputActions = new InputActions();
 
-        inputactions.Player.andar.performed += ctx => andar = ctx.ReadValue<float>();
-        inputactions.Player.andar.canceled += _ => andar = 0f;
+        inputActions.Player.andar.performed += ctx => move = ctx.ReadValue<float>();
+        inputActions.Player.andar.canceled += ctx => move = 0f;
 
-        inputactions.Player.rotar.performed += ctx => rotate = ctx.ReadValue<float>();
-        inputactions.Player.rotar.canceled += _ => rotate = 0f;
+        inputActions.Player.rotar.performed += ctx => rotate = ctx.ReadValue<float>();
+        inputActions.Player.rotar.canceled += ctx => rotate = 0f;
 
-        inputactions.Player.strafeL.performed += ctx => strafeL = ctx.ReadValue<float>();
-        inputactions.Player.strafeL.canceled += _ => strafeL = 0f;
 
-        inputactions.Player.strafeR.performed += ctx => strafeR = ctx.ReadValue<float>();
-        inputactions.Player.strafeR.canceled += _ => strafeR = 0f;
+        inputActions.Player.strafeL.performed += ctx => strafeL = ctx.ReadValue<float>();
+        inputActions.Player.strafeL.canceled += ctx => strafeL = 0f;
 
-        inputactions.Player.correr.started += _ => { corriendo = true; };
-        inputactions.Player.correr.canceled += _ => { corriendo = false; };
+        inputActions.Player.strafeR.performed += ctx => strafeR = ctx.ReadValue<float>();
+        inputActions.Player.strafeR.canceled += ctx => strafeR = 0f;
+
+
+        inputActions.Player.correr.started += _ => corriendo = true;
+        inputActions.Player.correr.canceled += _ => corriendo = false;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        aController = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
+
         cc = GetComponent<CharacterController>();
+
     }
 
     // Update is called once per frame
@@ -61,41 +66,51 @@ public class PlayerManager : MonoBehaviour
         //Cálculo del strafe
         strafe = strafeR - strafeL;
 
-        if (running)
+        if (corriendo)
+        {
+            speedMove = 5f;
+        }
+        else if (move < 0)
         {
             speedMove = 3f;
         }
-        else if (andar < 0)
-        {
-            speedMove = 0.75f;
-        }
         else
         {
-            speedMove = 1.5f;
-        };
+            speedMove = 3f;
+        }
 
-        //Vector final
         moveVector = transform.right * strafe * speedStrafe;
-        moveVector += transform.forward * andar * speedMove;
+        moveVector += transform.forward * move * speedMove;
 
-        //Mover al personaje
         cc.SimpleMove(moveVector);
-        transform.Rotate(rotate * transform.up * 90 * Time.deltaTime);
+
+        transform.Rotate(rotate * transform.up * 135 * Time.deltaTime);
     }
 
     void Animar()
     {
-        aController.SetFloat("strafe", strafe);
-        aController.SetFloat("andar", andar);
-        aController.SetBool("correr", corriendo);
+        animator.SetFloat("strafe", strafe);
+        animator.SetFloat("walk", move);
+
+        if (corriendo)
+        {
+            animator.SetFloat("walk", move * 2);
+        }
+        else
+        {
+            animator.SetFloat("walk", move);
+        }
+
     }
 
     private void OnEnable()
     {
-        inputactions.Enable();
+        inputActions.Enable();
     }
+
     private void OnDisable()
     {
-        inputactions.Disable();
+        inputActions.Disable();
+
     }
 }

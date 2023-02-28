@@ -4,38 +4,32 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    InputActions inputActions;
     [SerializeField] GameObject aimCamera;
+    [SerializeField] InputActions inputActions;
 
     private void Awake()
     {
         inputActions = new InputActions();
-        inputActions.Camera.apuntando.started += _ =>
+
+        inputActions.Camera.apuntando.started += ctx =>
         {
             aimCamera.SetActive(true);
         };
+        inputActions.Camera.apuntando.canceled += ctx => aimCamera.SetActive(false);
 
-        inputActions = new InputActions();
-        inputActions.Camera.apuntando.canceled += _ =>
-        {
-            aimCamera.SetActive(false);
-        };
+        aimCamera.SetActive(false);
     }
     // Start is called before the first frame update
     void Start()
     {
-        aimCamera.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
 
     }
+
     private void OnEnable()
     {
         inputActions.Enable();
     }
+
     private void OnDisable()
     {
         inputActions.Disable();

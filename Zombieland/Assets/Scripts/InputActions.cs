@@ -27,7 +27,7 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""strafe"",
+                    ""name"": ""strafeL"",
                     ""type"": ""Value"",
                     ""id"": ""9c595917-9a79-4611-9cdf-9b2854b0a1c5"",
                     ""expectedControlType"": ""Axis"",
@@ -36,24 +36,8 @@ public class @InputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""rotar"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""f6460b10-24d9-492e-8d94-39558542f417"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""strafeL"",
-                    ""type"": ""Value"",
-                    ""id"": ""02a2c719-ca8d-4a8f-894f-80db5cf582dc"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""strafeR"",
-                    ""type"": ""Value"",
-                    ""id"": ""675b2b31-2cf1-4fd0-b5c1-dbdbe8e329e7"",
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -62,6 +46,22 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""name"": ""correr"",
                     ""type"": ""Button"",
                     ""id"": ""4e7d39b2-08e0-418e-8811-914fadd1be3d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""strafeR"",
+                    ""type"": ""Value"",
+                    ""id"": ""07cc308e-1169-4dfe-b789-b6054f83a925"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""apuntar"",
+                    ""type"": ""Button"",
+                    ""id"": ""c4d9806f-a251-4d60-a51d-88556a90d8fc"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -82,29 +82,7 @@ public class @InputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ea6b7dc2-184b-4269-aa3a-ffbe47d1344e"",
-                    ""path"": ""<Gamepad>/leftStick/x"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""strafe"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ddd4246e-37e8-4be7-b6ea-b9f60dce80db"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""rotar"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""759a30c2-a65c-4814-96ad-4951e6bd6525"",
-                    ""path"": """",
+                    ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -114,12 +92,12 @@ public class @InputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f12772fa-90c1-43db-b745-a6faf09942ac"",
-                    ""path"": """",
+                    ""id"": ""ddd4246e-37e8-4be7-b6ea-b9f60dce80db"",
+                    ""path"": ""<Gamepad>/rightStick/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""strafeR"",
+                    ""action"": ""rotar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -131,6 +109,28 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""correr"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0bbcefae-6c77-452f-bd44-26c1f0d14719"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""strafeR"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d303867f-c551-4a5f-8d42-8700d88972bc"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""apuntar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -188,11 +188,11 @@ public class @InputActions : IInputActionCollection, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_andar = m_Player.FindAction("andar", throwIfNotFound: true);
-        m_Player_strafe = m_Player.FindAction("strafe", throwIfNotFound: true);
-        m_Player_rotar = m_Player.FindAction("rotar", throwIfNotFound: true);
         m_Player_strafeL = m_Player.FindAction("strafeL", throwIfNotFound: true);
-        m_Player_strafeR = m_Player.FindAction("strafeR", throwIfNotFound: true);
+        m_Player_rotar = m_Player.FindAction("rotar", throwIfNotFound: true);
         m_Player_correr = m_Player.FindAction("correr", throwIfNotFound: true);
+        m_Player_strafeR = m_Player.FindAction("strafeR", throwIfNotFound: true);
+        m_Player_apuntar = m_Player.FindAction("apuntar", throwIfNotFound: true);
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_apuntando = m_Camera.FindAction("apuntando", throwIfNotFound: true);
@@ -247,21 +247,21 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_andar;
-    private readonly InputAction m_Player_strafe;
-    private readonly InputAction m_Player_rotar;
     private readonly InputAction m_Player_strafeL;
-    private readonly InputAction m_Player_strafeR;
+    private readonly InputAction m_Player_rotar;
     private readonly InputAction m_Player_correr;
+    private readonly InputAction m_Player_strafeR;
+    private readonly InputAction m_Player_apuntar;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
         public PlayerActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @andar => m_Wrapper.m_Player_andar;
-        public InputAction @strafe => m_Wrapper.m_Player_strafe;
-        public InputAction @rotar => m_Wrapper.m_Player_rotar;
         public InputAction @strafeL => m_Wrapper.m_Player_strafeL;
-        public InputAction @strafeR => m_Wrapper.m_Player_strafeR;
+        public InputAction @rotar => m_Wrapper.m_Player_rotar;
         public InputAction @correr => m_Wrapper.m_Player_correr;
+        public InputAction @strafeR => m_Wrapper.m_Player_strafeR;
+        public InputAction @apuntar => m_Wrapper.m_Player_apuntar;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -274,21 +274,21 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @andar.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAndar;
                 @andar.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAndar;
                 @andar.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAndar;
-                @strafe.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStrafe;
-                @strafe.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStrafe;
-                @strafe.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStrafe;
-                @rotar.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotar;
-                @rotar.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotar;
-                @rotar.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotar;
                 @strafeL.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStrafeL;
                 @strafeL.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStrafeL;
                 @strafeL.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStrafeL;
-                @strafeR.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStrafeR;
-                @strafeR.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStrafeR;
-                @strafeR.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStrafeR;
+                @rotar.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotar;
+                @rotar.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotar;
+                @rotar.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotar;
                 @correr.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCorrer;
                 @correr.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCorrer;
                 @correr.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCorrer;
+                @strafeR.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStrafeR;
+                @strafeR.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStrafeR;
+                @strafeR.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStrafeR;
+                @apuntar.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnApuntar;
+                @apuntar.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnApuntar;
+                @apuntar.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnApuntar;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -296,21 +296,21 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @andar.started += instance.OnAndar;
                 @andar.performed += instance.OnAndar;
                 @andar.canceled += instance.OnAndar;
-                @strafe.started += instance.OnStrafe;
-                @strafe.performed += instance.OnStrafe;
-                @strafe.canceled += instance.OnStrafe;
-                @rotar.started += instance.OnRotar;
-                @rotar.performed += instance.OnRotar;
-                @rotar.canceled += instance.OnRotar;
                 @strafeL.started += instance.OnStrafeL;
                 @strafeL.performed += instance.OnStrafeL;
                 @strafeL.canceled += instance.OnStrafeL;
-                @strafeR.started += instance.OnStrafeR;
-                @strafeR.performed += instance.OnStrafeR;
-                @strafeR.canceled += instance.OnStrafeR;
+                @rotar.started += instance.OnRotar;
+                @rotar.performed += instance.OnRotar;
+                @rotar.canceled += instance.OnRotar;
                 @correr.started += instance.OnCorrer;
                 @correr.performed += instance.OnCorrer;
                 @correr.canceled += instance.OnCorrer;
+                @strafeR.started += instance.OnStrafeR;
+                @strafeR.performed += instance.OnStrafeR;
+                @strafeR.canceled += instance.OnStrafeR;
+                @apuntar.started += instance.OnApuntar;
+                @apuntar.performed += instance.OnApuntar;
+                @apuntar.canceled += instance.OnApuntar;
             }
         }
     }
@@ -359,11 +359,11 @@ public class @InputActions : IInputActionCollection, IDisposable
     public interface IPlayerActions
     {
         void OnAndar(InputAction.CallbackContext context);
-        void OnStrafe(InputAction.CallbackContext context);
-        void OnRotar(InputAction.CallbackContext context);
         void OnStrafeL(InputAction.CallbackContext context);
-        void OnStrafeR(InputAction.CallbackContext context);
+        void OnRotar(InputAction.CallbackContext context);
         void OnCorrer(InputAction.CallbackContext context);
+        void OnStrafeR(InputAction.CallbackContext context);
+        void OnApuntar(InputAction.CallbackContext context);
     }
     public interface ICameraActions
     {
